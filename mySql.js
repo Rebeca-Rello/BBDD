@@ -184,18 +184,18 @@ connection.connect(function(error){
 
     // });
 
-    let aprobado =("UPDATE marks SET mark = 5 WHERE mark <5")
-        connection.query(aprobado,function(err,result)
-        {
-            if(err){
+    // let aprobado =("UPDATE marks SET mark =5 WHERE mark <5")
+    //     connection.query(aprobado,function(err,result)
+    //     {
+    //         if(err){
 
-            console.log(err)
-            }
-            else{
-                console.log("Dato insertado");
-                console.log(result);
-                console.log(result.insertId);
+    //         console.log(err)
+    //         }
+    //         else{
+    //             console.log("Dato insertado");
+    //             console.log(result);
+    //             console.log(result.insertId);
 
-            }
+    //         }
 
-        });
+    //     });
