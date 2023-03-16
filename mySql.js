@@ -168,7 +168,7 @@ connection.connect(function(error){
 
     // });
 
-    //     let borrar = ("DELETE FROM marks WHERE date =<'2013-01-01'");
+    //     let borrar = ("DELETE FROM marks WHERE date <= '2013-01-01'");
     // connection.query(borrar,function(err,result)
     // {
     //     if(err){
