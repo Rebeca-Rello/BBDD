@@ -26,17 +26,25 @@ connection.connect(function(error){
 //Obtén los nombres y apellidos de los alumnos y los nombres de las asignaturas en las que
 // están apuntados.
 
-//let sql = "SELECT first_name, last_name, title  FROM students JOIN marks ON (students.student_id = marks.student_id)JOIN subjects ON(marks.subject_id = subjects.subject_id)";
+// let sql = "SELECT first_name, last_name, title FROM students " +
+// "JOIN grupos ON (students.group_id = grupos.group_id) " +
+// "JOIN subject_teacher ON (grupos.group_id = subject_teacher.subject_id) " +
+// "JOIN subjects ON (subject_teacher.subject_id = subjects.subject_id) ";
 
 // Obtén todos los nombres y apellidos de los profesores y los nombres de las asignaturas que
 // imparten.
 
-// let sql = "SELECT first_name,last_name, title FROM teachers JOIN subject_teacher ON (teachers.teacher_id = subject_teacher.teacher_id)JOIN subjects ON (subject_teacher.subject_id = subjects.subject_id)";
+//let sql = "SELECT first_name,last_name, title FROM teachers JOIN subject_teacher ON (teachers.teacher_id = subject_teacher.teacher_id)JOIN subjects ON (subject_teacher.subject_id = subjects.subject_id)";
 
 //Obtén el número total de alumnos por asignatura, el nombre de la asignatura y el nombre y apellidos del profesor que la imparte.
 
 
-let sql ="SELECT teachers.first_name, teachers.last_name, subjects.title, COUNT(students.student_id) FROM students JOIN grupos ON(students.group_id = grupos.group_id JOIN subject_teacher ON(subject_teacher.group_id = grupos.group_id JOIN teachers ON(subject_teacher.teacher_id = teachers.teacher_id JOIN subjects ON(subject_teacher.subject_id = subjects.subject_id) GROUP BY (subjects.title)";
+// let sql ="SELECT teachers.first_name, teachers.last_name, subjects.title, COUNT(students.student_id) " + 
+//          "FROM students JOIN grupos ON (students.group_id = grupos.group_id) JOIN subject_teacher " +  
+//          "ON (subject_teacher.group_id = grupos.group_id) JOIN teachers " +  
+//          "ON (subject_teacher.teacher_id = teachers.teacher_id) JOIN subjects " +  
+//          "ON (subject_teacher.subject_id = subjects.subject_id) GROUP BY (subjects.title)";
+
 
 connection.query(sql,function(err,result)
 {
@@ -47,7 +55,7 @@ connection.query(sql,function(err,result)
     else{
         console.log("Dato insertado");
         console.log(result);
-        console.log(result.insertId);
+        console.log(result.length);
 
     }
 
