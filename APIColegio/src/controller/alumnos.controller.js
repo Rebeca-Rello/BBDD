@@ -4,6 +4,7 @@ const connection = require ("../database")
 
 function getAlumno(request, response){
 
+   let params = [request.query.id]
    let sql;
    if(request.query.id == null){
 
@@ -11,10 +12,10 @@ function getAlumno(request, response){
    }
    else{
      
-    sql = "SELECT * FROM students WHERE student_id= " + request.query.id;
+    sql = "SELECT * FROM students WHERE student_id= " + "?";
    }
 
-   connection.query(sql, function(err, result){
+   connection.query(sql,params, function(err, result){
 
     if(err){
         console.log(err);
@@ -31,13 +32,11 @@ function postAlumno(request, response){
 
     console.log(request.body);
     
+    let params = [request.body.first_name, request.body.last_name, request.body.group_id,request.body.Entrada  ]
     let sql = "INSERT INTO students (first_name, last_name, group_id, Entrada) " +
-      "VALUES ('" + request.body.first_name + "', '" +
-                    request.body.last_name + "', '" +
-                    request.body.group_id + "', '" +
-                    request.body.Entrada + "')"
+      "VALUES ( ?,?,?,?)"
     console.log(sql);
-    connection.query(sql, function(err, result){
+    connection.query(sql, params, function(err, result){
 
         if(err){
             console.log(err);

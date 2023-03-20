@@ -3,14 +3,11 @@ const router = Router();
 const notasCtrl = require("../controller/notas.controller");
 
 
-router.get('/notas', notasCtrl.getNotas);
+router.get('/media', notasCtrl.getMedia);
 
-router.post('/notas', notasCtrl.postNotas);
+router.get('/apuntadas', notasCtrl.getApuntadas);
 
-router.put("/notas", notasCtrl.putNotas);
-
-router.delete("/notas", notasCtrl.deleteNotas);
-
+router.get("/impartidas", notasCtrl.getImpartidas);
 
 
 module.exports = router;
